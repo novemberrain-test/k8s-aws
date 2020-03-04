@@ -1,8 +1,8 @@
 #!/bin/bash
 helm_version='3'
 current_user=$1
-persistence_volume=$([ "$2" ] && echo "true" || echo "false")
-ingress=$([ "$3" ] && echo "true" || echo "false")
+persistence_volume=$([ "$2"=="volume" ] && echo "true" || echo "false")
+ingress=$([ "$3"=="ingress" ] && echo "true" || echo "false")
 ingress_hostname='learningforever.com'
 terraform_deploy_repo='examples'
 terraform_repo="/home/${current_user}/terraform-aws-kubernetes"
