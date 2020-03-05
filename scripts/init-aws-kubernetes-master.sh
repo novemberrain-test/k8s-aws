@@ -165,3 +165,9 @@ do
   kubectl apply -f /tmp/addon.yaml
   rm /tmp/addon.yaml
 done
+
+#Install Vim
+yum install -y wget vim
+
+#Add iptables rules to allow Pod traffic
+iptables -A FORWARD -j ACCEPT
