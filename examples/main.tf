@@ -42,3 +42,7 @@ module "kubernetes" {
   ]
 }
 
+output "public_ip" {
+  description = "Cluster IP address"
+  value       = module.kubernetes.public_ip
+}
