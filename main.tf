@@ -193,6 +193,16 @@ resource "aws_security_group_rule" "allow_api_from_cidr" {
   security_group_id = aws_security_group.kubernetes.id
 }
 
+# Allow Kubernetes service ports from outside
+resource "aws_security_group_rule" "allow_k8s_port" {
+  type      = "ingress"
+  from_port = 30000
+  to_port   = 32767
+  protocol  = "tcp"
+  cidr_blocks       = ["0.0.0.0/0"]
+  security_group_id = aws_security_group.kubernetes.id
+}
+
 ##########
 # Bootstraping scripts
 ##########
