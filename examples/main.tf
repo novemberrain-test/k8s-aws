@@ -1,6 +1,6 @@
 module "kubernetes" {
-  source = "scholzj/kubernetes/aws"
-
+  # source = "scholzj/kubernetes/aws"
+    source = "../"
   aws_region           = "us-east-1"
   cluster_name         = "aws-kubernetes"
   master_instance_type = "t2.medium"
