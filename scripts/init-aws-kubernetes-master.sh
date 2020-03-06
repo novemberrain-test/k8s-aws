@@ -31,7 +31,11 @@ DNS_NAME=$(echo "$DNS_NAME" | tr 'A-Z' 'a-z')
 yum install -y epel-release
 yum install -y python2-pip
 pip install awscli --upgrade
+#Install Vim
+yum install -y wget vim
 
+#Add iptables rules to allow Pod traffic
+iptables -A FORWARD -j ACCEPT
 # Tag subnets
 for SUBNET in $AWS_SUBNETS
 do
@@ -166,8 +170,4 @@ do
   rm /tmp/addon.yaml
 done
 
-#Install Vim
-yum install -y wget vim
 
-#Add iptables rules to allow Pod traffic
-iptables -A FORWARD -j ACCEPT
