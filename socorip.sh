@@ -14,7 +14,7 @@ cd "${terraform_repo}"/"${terraform_deploy_repo}" && master_ip=$(terraform outpu
 cd $HOME
 
 #get kubeconfig from master node
-scp centos@${master_ip}:/home/centos/kubeconfig /home/${current_user}
+scp -o StrictHostKeyChecking=no centos@${master_ip}:/home/centos/kubeconfig /home/${current_user}
 
 #export kubeconfig
 export KUBECONFIG=/home/${current_user}/kubeconfig
