@@ -8,8 +8,8 @@ module "kubernetes" {
   ssh_public_key       = "~/.ssh/id_rsa.pub"
   ssh_access_cidr      = ["0.0.0.0/0"]
   api_access_cidr      = ["0.0.0.0/0"]
-  min_worker_count     = 2
-  max_worker_count     = 2
+  min_worker_count     = 1
+  max_worker_count     = 1
   hosted_zone          = "learningforever.tk"
   hosted_zone_private  = false
 

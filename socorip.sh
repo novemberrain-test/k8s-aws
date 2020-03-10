@@ -26,4 +26,5 @@ curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scr
 helm repo add stable https://kubernetes-charts.storage.googleapis.com && helm repo update
 
 #install jenkins using helm
-helm install jenkins-master-bootrap stable/jenkins --set persistence.enabled=${persistence_volume} --set master.ingress.enabled=${ingress} --set master.ingress.hostName=${ingress_hostname} --set master.serviceType=NodePort
+#helm install jenkins-master-bootrap stable/jenkins --set persistence.enabled=${persistence_volume} --set master.ingress.enabled=${ingress} --set master.ingress.hostName=${ingress_hostname} --set master.serviceType=NodePort
+helm install -f jenkins-value.yaml stable/jenkins jenkins-bootstrap
