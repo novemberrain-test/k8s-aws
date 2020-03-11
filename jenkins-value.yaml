@@ -6,6 +6,7 @@ master:
   memory: "512Mi"
   hostName: jenkins.learningforever.com
   serviceType: NodePort
+  nodePort   : 30303
   installPlugins:
       - kubernetes:0.12
       - workflow-aggregator:2.5
@@ -22,7 +23,8 @@ master:
       cpu: "2000m"
       memory: "4096Mi"
 persistence:
-  enabled: false
+  enabled: true
+  existingClaim : pvc-jenkins
   scriptApproval:
     - "method groovy.json.JsonSlurperClassic parseText java.lang.String"
     - "new groovy.json.JsonSlurperClassic"
