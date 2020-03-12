@@ -27,4 +27,4 @@ helm repo add stable https://kubernetes-charts.storage.googleapis.com && helm re
 
 #install jenkins using helm
 #helm install jenkins-master-bootrap stable/jenkins --set persistence.enabled=${persistence_volume} --set master.ingress.enabled=${ingress} --set master.ingress.hostName=${ingress_hostname} --set master.serviceType=NodePort
-helm install -f jenkins-value.yaml stable/jenkins jenkins-bootstrap
+helm install -f "${terraform_repo}"/jenkins-value.yaml --generate-name stable/jenkins

@@ -24,7 +24,10 @@ master:
       memory: "4096Mi"
 persistence:
   enabled: true
-  existingClaim : pvc-jenkins
+# existingClaim : pvc-jenkins
+  storageClass: ssd
+  accessMode: ReadWriteOnce
+  size: 5Gi
   scriptApproval:
     - "method groovy.json.JsonSlurperClassic parseText java.lang.String"
     - "new groovy.json.JsonSlurperClassic"
